@@ -1,12 +1,34 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
-  return (
-	<View>
-	  <Text>HomeScreen</Text>
-	</View>
-  )
+
+	const navigation = useNavigation()
+
+	useLayoutEffect(() => {
+
+		navigation.setOptions({
+			headerShow: true,
+			title: 'Booking.com',
+			headerTitleStyle: {
+				fontSize: 20,
+				fontWeight: 'bold',
+				color: 'white'
+			},
+			headerStyle: {
+				backgroundColor: "#003580",
+				height: 110,
+
+			}
+		})
+	},[])
+
+	return (
+		<View>
+			<Text>HomeScreen</Text>
+		</View>
+	)
 }
 
 export default HomeScreen
