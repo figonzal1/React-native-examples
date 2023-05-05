@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, TextInput } from "react-native";
+import { StyleSheet, View, SafeAreaView, TextInput } from "react-native";
 import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 import SearchResults from "../components/SearchResults";

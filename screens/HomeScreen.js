@@ -7,6 +7,7 @@ import {
   Text,
   View,
   Image,
+  Alert,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Ionicons, Feather } from "@expo/vector-icons";
@@ -69,6 +70,19 @@ const HomeScreen = () => {
         title="Submit"
       />
     );
+  };
+
+  const searchPlaces = (places) => {
+    if (!route.params || !selectedDates) {
+      Alert.alert("Invalid Details", "Please enter all the details", [
+        {
+          text: "Cancel",
+          onPress: () => console.log("cancel pressed"),
+          style: "cancel",
+        },
+        { text: "OK", onPress: () => console.log("ok pressed") },
+      ]);
+    }
   };
 
   return (
@@ -145,6 +159,7 @@ const HomeScreen = () => {
 
             {/* Search */}
             <Pressable
+              onPress={() => searchPlaces(route?.params)}
               style={{
                 paddingHorizontal: 10,
                 borderColor: Colors.secondaryColor,
