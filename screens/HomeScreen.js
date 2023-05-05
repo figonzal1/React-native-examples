@@ -8,7 +8,7 @@ import {
   View,
   Image,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import Header from "../components/Header";
 import Colors from "../constants/Colors";
@@ -31,6 +31,8 @@ const HomeScreen = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const route = useRoute();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -77,11 +79,16 @@ const HomeScreen = () => {
           {/* Form */}
           <View style={styles.container}>
             {/* Destination */}
-            <Pressable style={styles.pressableContainer}>
+            <Pressable
+              style={styles.pressableContainer}
+              onPress={() => navigation.navigate("Search")}
+            >
               <Feather name="search" size={24} color="black" />
               <TextInput
                 placeholderTextColor={"black"}
-                placeholder="Enter your destination"
+                placeholder={
+                  route?.params ? route.params.input : "Enter your destination"
+                }
               />
             </Pressable>
 
