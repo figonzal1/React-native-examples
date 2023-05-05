@@ -6,6 +6,7 @@ import {
   TextInput,
   Text,
   View,
+  Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Feather } from "@expo/vector-icons";
@@ -73,6 +74,7 @@ const HomeScreen = () => {
       <View>
         <Header />
         <ScrollView>
+          {/* Form */}
           <View style={styles.container}>
             {/* Destination */}
             <Pressable style={styles.pressableContainer}>
@@ -117,7 +119,7 @@ const HomeScreen = () => {
                   setSelectedDate(startDate, endDate)
                 }
                 allowFontScaling={false}
-                placeholder={"Apr 27, 2023 => Jul 10, 2023"}
+                placeholder={"Select your dates"}
                 mode={"range"}
               />
             </Pressable>
@@ -156,6 +158,125 @@ const HomeScreen = () => {
               </Text>
             </Pressable>
           </View>
+
+          {/* Travel Section */}
+          <Text
+            style={{ marginHorizontal: 20, fontSize: 17, fontWeight: "500" }}
+          >
+            Travel More spend less
+          </Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                backgroundColor: Colors.primaryColor,
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal: 20,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                Genius
+              </Text>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 15,
+                  fontWeight: "500",
+                }}
+              >
+                You are ate genius level one in our loyalty program
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                borderColor: "#e0e0e0",
+                borderWidth: 2,
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal: 10,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                15% Discounts
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "500",
+                }}
+              >
+                Complete 5 stays to unlock level 2
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={{
+                width: 200,
+                height: 150,
+                marginTop: 10,
+                borderColor: "#e0e0e0",
+                borderWidth: 2,
+                borderRadius: 10,
+                padding: 20,
+                marginHorizontal: 20,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  marginVertical: 7,
+                }}
+              >
+                10% Discounts
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: "500",
+                }}
+              >
+                Enjoy Discounts at participating at properties of worldwide
+              </Text>
+            </Pressable>
+          </ScrollView>
+
+          {/* Image Booking.com section */}
+          <Pressable
+            style={{
+              marginTop: 40,
+              marginBottom: 100,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{ resizeMode: "cover", width: 250, height: 60 }}
+              source={{
+                uri: "https://assets.stickpng.com/thumbs/5a32a821cb9a85480a628f8f.png",
+              }}
+            />
+          </Pressable>
         </ScrollView>
       </View>
 
