@@ -72,16 +72,31 @@ const HomeScreen = () => {
     );
   };
 
-  const searchPlaces = (places) => {
+  const searchPlaces = (place) => {
     if (!route.params || !selectedDates) {
-      Alert.alert("Invalid Details", "Please enter all the details", [
-        {
-          text: "Cancel",
-          onPress: () => console.log("cancel pressed"),
-          style: "cancel",
-        },
-        { text: "OK", onPress: () => console.log("ok pressed") },
-      ]);
+      Alert.alert(
+        "Invalid Details",
+        "Please enter all the details",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel pressed"),
+            style: "cancel",
+          },
+          { text: "OK", onPress: () => console.log("Ok pressed") },
+        ],
+        { cancelable: false }
+      );
+    }
+
+    if (route.params && selectedDates) {
+      navigation.navigate("Places", {
+        rooms: rooms,
+        adults: adults,
+        children: children,
+        selectedDates: selectedDates,
+        place: place,
+      });
     }
   };
 
