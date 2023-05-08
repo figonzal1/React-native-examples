@@ -21,7 +21,7 @@ import {
 
 const PlacesScreen = () => {
   const route = useRoute();
-  //console.log(route.params);
+  console.log(route.params);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
@@ -499,13 +499,46 @@ const PlacesScreen = () => {
     },
   ];
 
+  const searchPlaces = data?.filter(
+    (item) => item.place === route.params.place.input
+  );
+  const [sortedData, setSortedData] = useState(data);
+
+  const compare = (a, b) => {
+    if (a.newPrice > b.newPrice) {
+      return -1;
+    }
+
+    if (a.newPrice < b.newPrice) {
+      return 1;
+    }
+
+    return 0;
+  };
+
+  const compare2 = (a, b) => {
+    if (a.newPrice < b.newPrice) {
+      return -1;
+    }
+
+    if (a.newPrice > b.newPrice) {
+      return 1;
+    }
+
+    return 0;
+  };
+
   const applyFilter = (filter) => {
-    
-    setModalVisible(false)
-    switch(filter){
+    setModalVisible(false);
+    switch (filter) {
       case "Cost: High to Low":
-        break
-      case "Cost: Low to High"
+        searchPlaces.map((val) => val.properties.sort(compare));
+        setSortedData(searchPlaces);
+        break;
+      case "Cost: Low to High":
+        searchPlaces.map((val) => val.properties.sort(compare2));
+        setSortedData(searchPlaces);
+        break;
     }
   };
 
@@ -564,7 +597,7 @@ const PlacesScreen = () => {
           backgroundColor: "#f5f5f5",
         }}
       >
-        {data
+        {sortedData
           ?.filter((item) => item.place === route.params.place.input)
           .map((item) =>
             item.properties.map((prop, index) => (
