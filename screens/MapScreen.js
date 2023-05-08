@@ -18,7 +18,6 @@ const MapScreen = () => {
   );
 
   useEffect(() => {
-    console.log(mapView.current);
     mapView.current.fitToCoordinates(coordinates, {
       edgePadding: {
         top: 190,

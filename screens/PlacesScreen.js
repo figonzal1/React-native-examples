@@ -21,7 +21,7 @@ import {
 
 const PlacesScreen = () => {
   const route = useRoute();
-  console.log(route.params);
+  //console.log(route.params);
 
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
