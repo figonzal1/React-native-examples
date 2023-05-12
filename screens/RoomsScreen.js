@@ -12,8 +12,6 @@ const RoomsScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
 
-  //console.log(route.params);
-
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShow: true,
@@ -156,6 +154,18 @@ const RoomsScreen = () => {
 
       {selected.length > 0 ? (
         <Pressable
+          onPress={() => {
+            navigation.navigate("User", {
+              oldPrice: route.params.oldPrice,
+              newPrice: route.params.newPrice,
+              name: route.params.name,
+              children: route.params.children,
+              adults: route.params.adults,
+              rating: route.params.rating,
+              startDate: route.params.startDate,
+              endDate: route.params.endDate,
+            });
+          }}
           style={{
             backgroundColor: "#007fff",
             padding: 8,

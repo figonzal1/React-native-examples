@@ -16,7 +16,7 @@ import Amenities from "../components/Amenities";
 const PropertyInfoScreen = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  console.log(route.params);
+  //console.log(route.params);
 
   useLayoutEffect(() => {
     navigation.setOptions({
