@@ -4,6 +4,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Colors from "../constants/Colors";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
+import { useDispatch } from "react-redux";
+import { savedPlaces } from "../SavedReducer";
 
 const ConfirmationScreen = () => {
   const route = useRoute();
@@ -27,6 +29,12 @@ const ConfirmationScreen = () => {
       },
     });
   }, []);
+
+  const dispatch = useDispatch();
+  const confirmBooking = () => {
+    dispatch(savedPlaces(route.params));
+    navigation.replace("Main");
+  };
 
   return (
     <View>
@@ -155,6 +163,7 @@ const ConfirmationScreen = () => {
         </View>
 
         <Pressable
+          onPress={confirmBooking}
           style={{
             backgroundColor: "#003580",
             width: 120,

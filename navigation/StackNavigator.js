@@ -92,6 +92,7 @@ const StackNavigator = () => {
           component={BookingScreen}
           options={{
             tabBarLabel: "Bookings",
+            headerTitleAlign: "center",
             headerShown: true,
             tabBarIcon: ({ focused }) =>
               focused ? (
