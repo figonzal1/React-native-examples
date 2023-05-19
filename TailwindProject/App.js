@@ -17,7 +17,7 @@ export default function App() {
       style={tw`flex h-full items-center justify-center bg-cyan-50 dark:bg-gray-900`}
     >
       <Text style={tw`text-lg font-bold dark:text-white`}>New App</Text>
-      <Text style={tw`text-6xl p-3`}>
+      <Text style={tw`text-6xl p-3 dark:text-white`}>
         { colorScheme === 'dark' ? 'LUNA' : 'SOL'}
       </Text>
 
