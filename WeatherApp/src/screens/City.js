@@ -16,13 +16,13 @@ const City = () => {
     countryName,
     populationText,
     populationWrapper,
-    container,
+    wrapper,
     riseWrapper,
     riseSetText,
   } = styles;
 
   return (
-    <SafeAreaView style={container}>
+    <View style={wrapper}>
       <ImageBackground
         style={styles.imageLayout}
         source={{
@@ -57,14 +57,13 @@ const City = () => {
           />
         </View>
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
   },
   imageLayout: {
     flex: 1,

@@ -60,14 +60,13 @@ const UpcomingWeather = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <ImageBackground
         style={styles.image}
         source={{
           uri: "https://cdn.shortpixel.ai/spai/q_lossy+w_754+h_424+to_auto+ret_img/https://cosmosmagazine.com/wp-content/uploads/2021/12/GettyImages-11244440761.jpg",
         }}
       >
-        <Text>Upcoming weather</Text>
         <FlatList
           data={DATA}
           renderItem={renderItem}
@@ -77,15 +76,13 @@ const UpcomingWeather = () => {
           )}
         />
       </ImageBackground>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: "royalblue",
   },
   image: {
     flex: 1,
