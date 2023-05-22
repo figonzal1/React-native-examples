@@ -7,30 +7,54 @@ import {
 } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Feather } from "@expo/vector-icons";
+import IconText from "../components/IconText";
 
 const City = () => {
+  const {
+    cityName,
+    cityText,
+    countryName,
+    populationText,
+    populationWrapper,
+    container,
+    riseWrapper,
+    riseSetText,
+  } = styles;
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         style={styles.imageLayout}
         source={{
           uri: "https://images.unsplash.com/photo-1444084316824-dc26d6657664?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         }}
       >
-        <Text style={[styles.cityText, styles.cityName]}>London</Text>
-        <Text style={[styles.cityText, styles.countryName]}>UK</Text>
+        <Text style={[cityText, cityName]}>London</Text>
+        <Text style={[cityText, countryName]}>UK</Text>
 
-        <View style={styles.populationWrapper}>
-          <Feather name="user" size={50} color={"red"} />
-          <Text style={styles.populationText}>8000</Text>
+        <View style={populationWrapper}>
+          <IconText
+            iconName={"user"}
+            iconColor={"red"}
+            bodyText={"8000"}
+            bodyTextStyle={populationText}
+          />
         </View>
 
-        <View style={styles.riseWrapper}>
-          <Feather name="sunrise" size={50} color={"white"} />
-          <Text style={styles.riseSetText}>10:46:58am</Text>
-          <Feather name="sunset" size={50} color={"white"} />
-          <Text style={styles.riseSetText}>17:28:15pm</Text>
+        <View style={riseWrapper}>
+          <IconText
+            iconName={"sunrise"}
+            iconColor={"white"}
+            bodyText={"10:46:58am"}
+            bodyTextStyle={riseSetText}
+          />
+
+          <IconText
+            iconName={"sunset"}
+            iconColor={"white"}
+            bodyText={"17:28:15pm"}
+            bodyTextStyle={riseSetText}
+          />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -73,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
-    marginTop: 30,
+    marginTop: 20,
   },
   riseSetText: {
     fontSize: 20,
